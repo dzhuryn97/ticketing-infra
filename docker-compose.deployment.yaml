@@ -1,0 +1,43 @@
+version: '3.5'
+include:
+    - ./docker-compose.auth.yaml
+    - ./docker-compose.events.yaml
+    - ./docker-compose.tickets.yaml
+services:
+    gateway:
+        image: nginx:1.19-alpine
+        restart: unless-stopped
+        volumes:
+            - ./docker/gateway/conf.d:/etc/nginx/conf.d:ro
+            - ./.ssl:/etc/ssl/certs
+        depends_on:
+            - auth_nginx
+            - events_nginx
+            - tickets_nginx
+
+    rabbitmq:
+        image: rabbitmq:3-management-alpine
+        restart: unless-stopped
+        hostname: rabbitmq
+        volumes:
+            - rabbitmq:/var/lib/rabbitmq/
+            - ./docker/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+            - ./docker/rabbitmq/definition.json:/etc/rabbitmq/definition.json
+        environment:
+            RABBITMQ_DEFAULT_USER: '${RABBITMQ_USER}'
+            RABBITMQ_DEFAULT_PASS: '${RABBITMQ_PASSWORD}'
+            CONFIG_FILE: /etc/rabbitmq/rabbitmq.conf
+
+    database:
+        image: postgres:12.20-alpine
+        restart: unless-stopped
+        volumes:
+            - database_pg:/var/lib/postgresql/data:delegated
+        environment:
+            POSTGRES_PASSWORD: '${DB_PASSWORD}'
+            POSTGRES_USER: '${DB_USER}'
+            POSTGRES_DB: '${DB_NAME}'
+
+volumes:
+    database_pg:
+    rabbitmq:

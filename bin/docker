@@ -1,0 +1,7 @@
+#!/bin/bash
+
+case $1 in
+    *)
+        DOCKER_UID=${DOCKER_UID:-$(id -u)} DOCKER_GID=${DOCKER_GID:-$(id -g)} docker-compose ${@}
+    ;;
+esac

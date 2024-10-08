@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+    auth_php:
+        volumes:
+            - ./.jwt/:/app/config/jwt
+    attendance_php:
+        volumes:
+            - ./.jwt/public.pem:/app/config/jwt/public.pem
+    events_php:
+        volumes:
+            - ./.jwt/public.pem:/app/config/jwt/public.pem
+    tickets_php:
+        volumes:
+            - ./.jwt/public.pem:/app/config/jwt/public.pem
+    rabbitmq:
+        ports:
+            - '15672:15672'
+    gateway:
+        ports:
+            - '443:443'

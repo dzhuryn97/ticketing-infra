@@ -1,0 +1,6 @@
+.idea
+.env
+.ssl
+.jwt
+/docker-compose.override.yaml
+/docker-compose.yaml
