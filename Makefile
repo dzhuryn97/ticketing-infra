@@ -88,7 +88,7 @@ deploy-tickets-dev:
 
 init-local:
 	make generate-ssl
-	make generate-ssl
+	make generate-jwt-keys
 	bin/docker up -d
 	make init-rabbitmq
 	make init-auth
