@@ -90,6 +90,7 @@ init-local:
 	make generate-ssl
 	make generate-jwt-keys
 	bin/docker up -d
+	echo "sleep for 10 second" && sleep 10 # ad-hoc to init rabbitmq health-check doesn't help
 	make init-rabbitmq
 	make init-auth
 	make init-events
