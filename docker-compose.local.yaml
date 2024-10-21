@@ -10,6 +10,7 @@ services:
         restart: unless-stopped
         volumes:
             - ./docker/gateway/conf.d:/etc/nginx/conf.d:ro
+            - ./gateway:/var/www/app
             - ./.ssl:/etc/ssl/certs
         depends_on:
             - auth_nginx

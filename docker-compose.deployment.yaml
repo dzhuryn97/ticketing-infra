@@ -3,12 +3,14 @@ include:
     - ./docker-compose.auth.yaml
     - ./docker-compose.events.yaml
     - ./docker-compose.tickets.yaml
+    - ./docker-compose.attendance.yaml
 services:
     gateway:
         image: nginx:1.19-alpine
         restart: unless-stopped
         volumes:
             - ./docker/gateway/conf.d:/etc/nginx/conf.d:ro
+            - ./gateway:/var/www/app
             - ./.ssl:/etc/ssl/certs
         depends_on:
             - auth_nginx

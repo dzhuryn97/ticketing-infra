@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 15px 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #3498db;
+            padding: 10px 20px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Welcome to the Ticketing project</h2>
+    <h3>List of Microservices below:</h3>
+    <ul>
+        <li><a target="_blank" href="/api/auth/docs">Auth</a></li>
+        <li><a target="_blank" href="/api/events/docs">Events</a></li>
+        <li><a target="_blank" href="/api/tickets/docs">Tickets</a></li>
+        <li><a target="_blank" href="/api/attendance/docs">Attendance</a></li>
+    </ul>
+</div>
+</body>
+</html>
