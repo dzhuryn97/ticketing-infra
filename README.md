@@ -1,6 +1,10 @@
 # Ticketing
-
 A PET project focused on experimenting with microservices architecture and exploring the **Clan Architecture** design pattern. 
+
+To set-up locally run next script
+```shell
+curl -o init.sh  https://raw.githubusercontent.com/dzhuryn97/ticketing-infra/main/init.sh && chmod +x init.sh && ./init.sh
+```
 
 ## Services Overview
 
