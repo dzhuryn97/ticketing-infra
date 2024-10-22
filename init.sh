@@ -11,3 +11,4 @@ cp .env.dist .env
 cp docker-compose.local.yaml docker-compose.yaml
 cp docker-compose.override.yaml.dist docker-compose.override.yaml
 make init-local
+open https://localhost
